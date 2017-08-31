@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AndroidFRV</string>
+    <string name="title_activity_main1">MainActivity1</string>
+    <string name="OK">Ok</string>
+    <string name="ЗАГРУЖЕНО_S_ЗАП_ЗА_S_СЕК" formatted="false">%s records loaded in %s sec.</string>
+    <string name="ОШИБКА_СОЕДИНЕНИЯ_ПОВТОРИТЕ_ПОЗЖЕ">Network error, try again later</string>
+    <string name="ПРОДОЛЖ_ОПЕР">Продолж. опер.</string>
+    <string name="ОКОНЧ_РАБОТ">Оконч. работ</string>
+    <string name="ЗАГРУЗКА_S_S" formatted="false">Loading &#8230; %s/%s</string>
+    <string name="Не_выбран_ни_один_наблюдаемый">No person selected! </string>
+    <string name="Вы_забыли_установить_время_начала_операции">You forgot to set the start time of the operation! </string>
+    <string name="Не_выбран_ни_один_индекс">No index selected! </string>
+    <string name="Повторить_ввод">Go back</string>
+    <string name="Действительно_закончить_запись">Are you sure you want to end the recording?</string>
+    <string name="Да_работа_окончена">Yes, work is over!</string>
+    <string name="Пока_не_надо">Not yet&#8230;</string>
+    <string name="ПЗВ">ПЗВ</string>
+    <string name="ОП">ОП</string>
+    <string name="ОБС">ОБС</string>
+    <string name="ОТЛ">ОТЛ</string>
+    <string name="НТД">НТД</string>
+    <string name="НТП">НТП</string>
+    <string name="Записано">Saved&#8230;</string>
+    <string name="Готовим_данные">Prepare data&#8230;</string>
+    <string name="Отправляем_на_сервер" formatted="false">Sending to the server &#8230; (%s)</string>
+    <string name="добавлено_вручную">(добавлено вручную)</string>
+    <string name="не_заполнено">(не заполнено)</string>
+    <string name="ОШИБКА_ЗАГРУЗКИ_НА_СЕРВЕР">Ошибка загрузки на сервер</string>
+</resources>

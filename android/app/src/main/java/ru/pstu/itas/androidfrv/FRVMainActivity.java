@@ -27,16 +27,16 @@ import java.util.Timer;
 
 public class FRVMainActivity extends AppCompatActivity
 {
-	public static final String MAIN_SERVER_GETKEY = "http://192.168.1.51/php/getfrvkey.php";
-	public static final String MAIN_SERVER_POSTFRV = "http://192.168.1.51/php/postfrv.php";
-	public static final String TEST_SERVER_GETKEY = "http://192.168.1.51/php/test/getfrvkey.php";
-	public static final String TEST_SERVER_POSTFRV = "http://192.168.1.51/php/test/postfrv.php";
-	private final URL STRUCT_CSV_URL = new URL("http://192.168.1.51/php/file2.csv");
-	private final URL OPERS_CSV_URL = new URL("http://192.168.1.51/php/file3.csv");
-	private final URL FACTS_CSV_URL = new URL("http://192.168.1.51/php/file4.csv");
-	private final URL TEST_STRUCT_CSV_URL = new URL("http://192.168.1.51/php/test/file2.csv");
-	private final URL TEST_OPERS_CSV_URL = new URL("http://192.168.1.51/php/test/file3.csv");
-	private final URL TEST_FACTS_CSV_URL = new URL("http://192.168.1.51/php/test/file4.csv");
+	public static final String MAIN_SERVER_GETKEY = "http://194.58.121.223/frv/getfrvkey.php";
+	public static final String MAIN_SERVER_POSTFRV = "http://194.58.121.223/frv/postfrv.php";
+	public static final String TEST_SERVER_GETKEY = "http://194.58.121.223/frv/test/getfrvkey.php";
+	public static final String TEST_SERVER_POSTFRV = "http://194.58.121.223/frv/test/postfrv.php";
+	private final URL STRUCT_CSV_URL = new URL("http://194.58.121.223/frv/file2.csv");
+	private final URL OPERS_CSV_URL = new URL("http://194.58.121.223/frv/file3.csv");
+	private final URL FACTS_CSV_URL = new URL("http://194.58.121.223/frv/file4.csv");
+	private final URL TEST_STRUCT_CSV_URL = new URL("http://194.58.121.223/frv/test/file2.csv");
+	private final URL TEST_OPERS_CSV_URL = new URL("http://194.58.121.223/frv/test/file3.csv");
+	private final URL TEST_FACTS_CSV_URL = new URL("http://194.58.121.223/frv/test/file4.csv");
 
 	//	private final URL STRUCT_CSV_URL = new URL("http://192.168.43.223/file2.csv");
 //	private final URL OPERS_CSV_URL = new URL("http://192.168.43.223/file3.csv");

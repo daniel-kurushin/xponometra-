@@ -16,6 +16,7 @@ function insert_or_get_xpoh($xpoh = 'test')
 
 function insert_or_get_oper($oper = 'test')
 {
+	if (stripos($oper)
 	pg_query_params("insert into OPER (name) values ($1)", array($oper));
 	$result = pg_query_params("select id from OPER where name = $1", array($oper));
 	if ($row = pg_fetch_row($result))
@@ -77,6 +78,7 @@ function insert_or_get_frvh($date_time, $n_head, $id_podr, $id_dolg, $id_xpoh, $
 	     values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11);",
 		array($date_time, $n_head, $id_podr, $id_dolg, $id_xpoh, $sm_nom, $sm_dlit, $rab_gr_a, $rab_gr_b, $num_men, $worker_nik)
 	);
+
 	$result = pg_query_params("select id from FRVH where date_time = $1 and n_head = $2", array($date_time, $n_head));
 	if ($row = pg_fetch_row($result))
 	{

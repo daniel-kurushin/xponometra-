@@ -826,43 +826,6 @@ class FRVDatabase extends SQLiteOpenHelper
 		Logger.exit("FRVDatabase.exportCSV");
 	}
 
-	void exportCSV(int workerID) throws Exception
-	{
-		Logger.call("FRVDatabase.exportCSV", String.format("%s", workerID));
-		uploadState = EXPORT_CSV;
-		String FIO = getXpohById(String.valueOf(workerID));
-		final File toExport = new File(FRVDATA, String.format("%s.csv", FIO));
-		FileOutputStream f = new FileOutputStream(toExport);
-//)		writeTableToFile(f, "XPOH", new String[]{"ID", "FIO", "COMMENTS"});
-//		writeTableToFile(f, "PODR", new String[]{"ID", "NAME"});
-//		writeTableToFile(f, "DOLG", new String[]{"ID", "NAME", "PODR_ID"});
-//		writeTableToFile(f, "OPER", new String[]{"ID", "NAME"});
-//		writeTableToFile(f, "FACT", new String[]{"ID", "NAME"});
-		writeFRVBodyToFile(f);
-		f.close();
-		uploadState = UPLOAD_CSV;
-		AsyncTask uploadTask = new AsyncTask()
-		{
-
-			@Override
-			protected Object doInBackground(Object[] objects)
-			{
-				Logger.call("AsyncTask.doInBackground");
-				try
-				{
-					new FTPUpload(FRVDatabase.this, String.format("(%tFT%tT) %s", new Date(), new Date(), toTranslit(toExport.getName())), new FileInputStream(toExport));
-					Logger.exit("AsyncTask.doInBackground", "FTP");
-				} catch (Exception e)
-				{
-					Logger.exit("AsyncTask.doInBackground", e.toString());
-				}
-				return null;
-			}
-		};
-		uploadTask.execute();
-		Logger.exit("FRVDatabase.exportCSV", String.format("%s", workerID));
-	}
-
 	private String toTranslit(String name)
 	{
 		return Translit.translit(name);

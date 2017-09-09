@@ -27,16 +27,16 @@ import java.util.Timer;
 
 public class FRVMainActivity extends AppCompatActivity
 {
-	public static final String MAIN_SERVER_GETKEY = "http://tyomin.000webhostapp.com/getfrvkey.php";
-	public static final String MAIN_SERVER_POSTFRV = "http://tyomin.000webhostapp.com/postfrv.php";
-	public static final String TEST_SERVER_GETKEY = "http://tyomin.000webhostapp.com/test/getfrvkey.php";
-	public static final String TEST_SERVER_POSTFRV = "http://tyomin.000webhostapp.com/test/postfrv.php";
-	private final URL STRUCT_CSV_URL = new URL("http://tyomin.000webhostapp.com/file2.csv");
-	private final URL OPERS_CSV_URL = new URL("http://tyomin.000webhostapp.com/file3.csv");
-	private final URL FACTS_CSV_URL = new URL("http://tyomin.000webhostapp.com/file4.csv");
-	private final URL TEST_STRUCT_CSV_URL = new URL("http://tyomin.000webhostapp.com/test/file2.csv");
-	private final URL TEST_OPERS_CSV_URL = new URL("http://tyomin.000webhostapp.com/test/file3.csv");
-	private final URL TEST_FACTS_CSV_URL = new URL("http://tyomin.000webhostapp.com/test/file4.csv");
+	public static final String MAIN_SERVER_GETKEY = "http://192.168.1.51/php/getfrvkey.php";
+	public static final String MAIN_SERVER_POSTFRV = "http://192.168.1.51/php/postfrv.php";
+	public static final String TEST_SERVER_GETKEY = "http://192.168.1.51/php/test/getfrvkey.php";
+	public static final String TEST_SERVER_POSTFRV = "http://192.168.1.51/php/test/postfrv.php";
+	private final URL STRUCT_CSV_URL = new URL("http://192.168.1.51/php/file2.csv");
+	private final URL OPERS_CSV_URL = new URL("http://192.168.1.51/php/file3.csv");
+	private final URL FACTS_CSV_URL = new URL("http://192.168.1.51/php/file4.csv");
+	private final URL TEST_STRUCT_CSV_URL = new URL("http://192.168.1.51/php/test/file2.csv");
+	private final URL TEST_OPERS_CSV_URL = new URL("http://192.168.1.51/php/test/file3.csv");
+	private final URL TEST_FACTS_CSV_URL = new URL("http://192.168.1.51/php/test/file4.csv");
 
 	//	private final URL STRUCT_CSV_URL = new URL("http://192.168.43.223/file2.csv");
 //	private final URL OPERS_CSV_URL = new URL("http://192.168.43.223/file3.csv");
@@ -62,47 +62,12 @@ public class FRVMainActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		Logger.call("FRVMainActivity.onCreate", "");
 
-		getAccessKey();
-
 		setContentView(R.layout.activity_frvmain);
 		db = new FRVDatabase(this);
 
 		attachEvents();
 
 		Logger.exit("FRVMainActivity.onCreate", db.toString());
-	}
-
-	private void getAccessKey()
-	{
-		Logger.call("FRVMainActivity.getAccessKey");
-		AsyncTask<String, String, String> getk = new AsyncTask<String, String, String>()
-		{
-			@Override
-			protected String doInBackground(String... strings)
-			{
-				Logger.call("Anonimous.doInBackground");
-				try
-				{
-					TelephonyManager telephonyManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
-					String devicIMEI = telephonyManager.getDeviceId();
-					URLConnection c = (new URL(String.format("http://tyomin.000webhostapp.com/getaccesskey.php?key=%s", devicIMEI))).openConnection();
-					c.connect();
-
-					BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
-
-					String line = in.readLine();
-					FRVMainActivity.access_key = line;
-					Logger.exit("Anonimous.doInBackground", line);
-				} catch (IOException e)
-				{
-					FRVMainActivity.access_key = "ERROR";
-					Logger.exit("Anonimous.doInBackground", e.toString());
-				}
-				return null;
-			}
-		};
-		getk.execute("");
-		Logger.exit("FRVMainActivity.getAccessKey");
 	}
 
 	private void attachEvents()
